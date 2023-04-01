@@ -1,12 +1,12 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import profileBuilding from "./assets/profileBuilding.png";
 import profilebuilding2 from "./assets/profilebuilding2.png";
 import profilebuilding3 from "./assets/profilebuilding3.png";
 // import Modal from "./Modal";
 // import Property from "./property";
 function ProfileHero() {
-  const [isModal,setIsModal]=useState(false)
-  const handlemodal=()=>{
+  const [isModal, setIsModal] = useState(false)
+  const handlemodal = () => {
     setIsModal(!isModal)
   }
   return (
@@ -22,10 +22,7 @@ function ProfileHero() {
         </div>
         <div className="ds border-b-2 border-[#5A7BF3] w-1/2 mt-5" />
         <div className="font-pSans font-normal text-[rgba(0,0,0,0.69)] text-base w-3/4 mt-5">
-          NFT are verified after 70% of the validators votes on the proof of the
-          ownership one can go and buy fractional part of that NFT proved land.
-          Fractional NFTs are the portion of NFT land you are assigned, backed
-          with the actual value of the land.
+          These are your researches, and they represent a significant contribution to the body of knowledge in your field. Your researches demonstrate your commitment to exploring new ideas, pushing boundaries, and advancing the frontiers of knowledge.
         </div>
         <div className="flex flex-row mt-16 space-x-10">
           <div
@@ -36,7 +33,7 @@ function ProfileHero() {
             <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
             <div className="absolute bottom-5 w-72 p-4 flex flex-col">
               <div className="font-semibold  font-pSans text-xl z-[1] text-white">
-                D21, DLF, Central Delhi, Rajiv Chowk, New Delhi - 110055
+              The Effect of Social Media on Body Image Perception Among Young Adults
               </div>
               <div className=" text-[rgba(255,255,255,0.79)] font-pSans text-xs italic font-light">
                 Verified

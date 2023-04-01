@@ -61,7 +61,7 @@ function ProfileCard() {
       <div className="flex flex-row space-x-6 mt-16 px-2 w-max">
         <div>
           <div className="font-pSans text-xl font-light text-[rgba(0,0,0,0.5)] flex justify-center items-center">
-            assets owned
+            Researches used by
           </div>
           <div className="flex space-x-3  justify-center items-center h-[56px]">
             <div className="flex">
@@ -88,7 +88,7 @@ function ProfileCard() {
         </div>
         <div>
           <div className="font-pSans text-xl font-light text-[rgba(0,0,0,0.5)] flex justify-center items-center">
-            validated
+            verified
           </div>
           <div className="font-pSans font-bold text-[40px] flex justify-center items-center h-[56px]">
             0
@@ -96,7 +96,7 @@ function ProfileCard() {
         </div>
         <div>
           <div className="font-pSans text-xl font-light text-[rgba(0,0,0,0.5)] flex justify-center items-center">
-            invalidated
+            Not verified
           </div>
           <div className="font-pSans font-bold text-[40px] flex justify-center items-center h-[56px]">
             0
@@ -104,7 +104,7 @@ function ProfileCard() {
         </div>
         <div>
           <div className="font-pSans text-xl font-light text-[rgba(0,0,0,0.5)] flex justify-center items-center w-max">
-            Bhoomi Tokens
+            Shodh Tokens
           </div>
           <div className="font-pSans font-bold text-[40px] flex justify-center items-center h-[56px]">
             <div className="flex space-x-2">
