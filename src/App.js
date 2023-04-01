@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
+import ValidateProperty from "./components/validateProperty";
 
 function App() {
   
