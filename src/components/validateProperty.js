@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SocialMedia from "./assets/SocialMedia.jpg";
-import ClimateChange from "./assets/ClimateChange.jpg";
-import MusicAndLearning from "./assets/MusicAndLearning.jpg";
+import profilebuilding2 from "./assets/profilebuilding2.png";
+// import profileBuilding2 from "./assets/profileBuilding2.png";
+import profileBuilding1 from "./assets/profileBuilding1.png";
 
 function ValidateProperty() {
   const [img1, setImg1] = useState(false);
@@ -24,7 +24,7 @@ function ValidateProperty() {
             }}
             onMouseLeave={() => setImg1(false)}
           >
-            <img src={MusicAndLearning} alt="" className="  h-96 w-72 brightness-50 rounded-2xl" />
+            <img src={profilebuilding2} alt="" className="  h-96 w-72" />
             {/* <div class="h-20 absolute bottom-0 left-0 bg-gradient-to-r from-cyan-500 to-blue-500"/> */}
             <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl h-96 w-72 top-0 absolute" />
             <div className="absolute bottom-5 w-72 p-4 flex flex-col">
@@ -54,7 +54,7 @@ function ValidateProperty() {
             }}
             onMouseLeave={() => setImg2(false)}
           >
-            <img src={SocialMedia} alt="" className="  h-96 w-72 brightness-50 rounded-2xl" />
+            <img src={profileBuilding1} alt="" className="  h-96 w-72" />
 
             <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl   h-96 w-72 top-0 absolute" />
             <div className="absolute bottom-5 w-72 p-4 flex flex-col">
@@ -84,8 +84,8 @@ function ValidateProperty() {
             }}
             onMouseLeave={() => setImg3(false)}
           >
-            <img src={ClimateChange} alt="" className="  h-96 w-72 brightness-50 rounded-2xl" />
-            <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl   h-96 w-72 top-0 absolute" />
+            <img src={profileBuilding1} alt="" className="  h-96 w-72" />
+            <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
             <div className="absolute bottom-5 w-72 p-4 flex flex-col">
               <div
                 className={`font-semibold transition-all duration-300 ease-in font-pSans text-xl z-[1] ${

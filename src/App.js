@@ -1,8 +1,10 @@
 // import { useState } from "react";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import Validator from "./components/Validator";
 import Profile from "./components/Profile";
 import ValidateProperty from "./components/validateProperty";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/validate" element={<ValidateProperty />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/validator" element={<Validator />}/>
           {/* <Profile /> */}
         </Routes>
       </Router>
