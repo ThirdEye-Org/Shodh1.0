@@ -11,9 +11,9 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route index element={<Profile />} />
+          <Route index element={<Home />} />
           <Route path="/validate" element={<ValidateProperty />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
           {/* <Profile /> */}
         </Routes>
       </Router>
