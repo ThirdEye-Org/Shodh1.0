@@ -1,7 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ethers } from "ethers"
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
+
+  const [address, setAddress] = useState(null);
+  const [logedin,setLogedin] = useState(false);
+
+  async function requestAccount() {
+    await window.ethereum.request({ method: "eth_requestAccounts" });
+    let accounts = await web3.eth.requestAccounts();
+    setAddress(accounts[0]);
+    setLogedin(true);
+  }
+
   return (
     <div className="h-max w-screen  flex justify-between items-center py-4 px-8 font-pSans">
       <div className="flex gap-2 h-full items-center justify-center">
