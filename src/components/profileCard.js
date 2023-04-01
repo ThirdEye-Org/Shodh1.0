@@ -7,7 +7,7 @@ import profileBack from "./assets/profileBack.png";
 import profileback from "./assets/profileback.jpeg";
 import tokenLogo from "./assets/tokenLogo.png";
 import blueTick from "./assets/blueTick.svg";
-// import { userContext } from "../App";
+import { contractContext } from "../App";
 // const web3 = require('web3')
 
 function ProfileCard() {
@@ -29,6 +29,9 @@ function ProfileCard() {
   // },[])
 
   // console.log(account);
+
+  const {contracts} = React.useContext(contractContext);
+  console.log(contracts);
   return (
     <div className="scale-[80%] bg-white w-[612px] h-[862px] shadow-[0_4px_40px_rgba(0,0,0,0.25)] rounded-[50px] flex flex-col items-center relative ">
       <div className="absolute ">
