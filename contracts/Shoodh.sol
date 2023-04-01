@@ -19,7 +19,9 @@ contract Shoodh {
     // mapping and variables
 
     // user strcut
-    mapping(address=>mapping(address=>uint)) public contributions;
+
+
+    mapping(address=>uint) public contributions;
     mapping(address=>uint) public noResearch;
     mapping(address=>uint[]) public  userResearches;
 
@@ -117,7 +119,7 @@ contract Shoodh {
         require(_amt >0 && msg.value>0,"sending an negative amount");
         _to.transfer(msg.value);    
 
-        contributions[msg.sender][_to] +=_amt; 
+        contributions[msg.sender] +=_amt; 
 
         emit   Contribution(_to,msg.sender,_amt);
     }
@@ -163,6 +165,9 @@ contract Shoodh {
         emit ApproveUpdate(_reqid,currreq.original_id,currreq.new_id,currreq.from);
     }
 
+    function getResearches(address _user) public view returns(uint[] memory){
+        return userResearches[_user];
+    }
 
 
 

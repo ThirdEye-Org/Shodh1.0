@@ -5,13 +5,17 @@ import assetsOwned3 from "./assets/assetsOwned3.png";
 import profileback from "./assets/profileback.jpeg";
 import blueTick from "./assets/blueTick.svg";
 import { contractContext } from "../App";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import Identicon from "react-identicons";
+import { ethers } from "ethers";
+import { useEffect } from "react";
 
 // const web3 = require('web3')
 
 function ProfileCard() {
-  const Navigate=useNavigate()
+  const { account, setAccount, setLoggedIn, loggedIn, contracts } =
+    React.useContext(contractContext);
+  const Navigate = useNavigate();
   // const { account,contract ,web3Api} = useContext(userContext);
   // const [tokens,setTokens]=React.useState(0);
   // React.useEffect(()=>{
@@ -31,14 +35,50 @@ function ProfileCard() {
 
   // console.log(account);
 
-  const { account, setAccount, setLoggedIn, loggedIn } = React.useContext(contractContext);
+  useEffect(() => {
+    // declare the data fetching function
+    const fetchUserdetails = async () => {
+      const data = await readUserdetails();
+      return data;
+    };
+
+    contracts && fetchUserdetails().catch(console.error);
+  }, [contracts]);
+
+  async function readUserdetails() {
+    if (typeof window.ethereum !== "undefined") {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      console.log("provider", provider);
+      const cont = contracts.shoodh;
+      try {
+        const datacontri = await cont.contributions(account);
+        console.log(
+          "User Contribution in wei: ",
+          ethers.utils.formatUnits(datacontri)
+        );
+
+        const datanoresearch = await cont.noResearch(account);
+        console.log(
+          "User no of researches: ",
+          ethers.utils.formatUnits(datanoresearch)
+        );
+        const dataresearch = await cont.getResearches(account);
+        console.log("User Research NFT IDs: ", dataresearch);
+      } catch (err) {
+        console.log("Error: ", err);
+        alert(
+          "Switch your MetaMask network to Polygon zkEVM testnet and refresh this page!"
+        );
+      }
+    }
+  }
+
   // console.log(account);
   // console.log(contracts);
   // setAccount('0x08e9CADc107893c306DFA3fc77525cAFB1116935');
   // console.log(account)
-  if(!loggedIn)
-  {
-    Navigate('/')
+  if (!loggedIn) {
+    Navigate("/");
   }
   return (
     <div className="scale-[80%] bg-white w-[612px] h-[862px] shadow-[0_4px_40px_rgba(0,0,0,0.25)] rounded-[50px] flex flex-col items-center relative ">
@@ -123,11 +163,14 @@ function ProfileCard() {
           </div>
         </div>
       </div>
-      <div className="w-[70%] h-[75px] flex items-center justify-center p-[20px 24px] bg-[#5A7BF3] rounded-3xl font-pSans color-white font-medium text-[30px] text-white mt-16 cursor-pointer" onClick={()=>{
-        Navigate("/")
-        setAccount(null);
-        setLoggedIn(false);
-      }}>
+      <div
+        className="w-[70%] h-[75px] flex items-center justify-center p-[20px 24px] bg-[#5A7BF3] rounded-3xl font-pSans color-white font-medium text-[30px] text-white mt-16 cursor-pointer"
+        onClick={() => {
+          Navigate("/");
+          setAccount(null);
+          setLoggedIn(false);
+        }}
+      >
         log out
       </div>
     </div>

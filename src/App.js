@@ -12,9 +12,9 @@ import researchPaperNFT from "./contracts/ResearchPaperNFT.sol/ResearchPaper.jso
 import shoodh from "./contracts/Shoodh.sol/Shoodh.json";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 export const contractContext = React.createContext();
-const verifierNFTAddress = "0xED21b1AbbfC45C0ed89fd977f0497ea8B0f522Bc";
-const researchPaperNFTAddress = "0x5f7d6843cd2455BD49C2edc764B220bb59f408c0";
-const shoodhAddress = "0xAe90Ad505E70Ae0388FF1CEb88B0A92F4568cF47";
+const verifierNFTAddress = "0x28Bb85f8103C7B27DA9d21DC98d5537C5Af42483";
+const researchPaperNFTAddress = "0xF040770EA2b58aad7590041c478E4BB01eFeAcdd";
+const shoodhAddress = "0xf26fD86681FE837ffD9a495Ee72Bcd89b69e5dD5";
 
 function App() {
   const [contracts, setContracts] = useState({
