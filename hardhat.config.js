@@ -15,6 +15,6 @@ module.exports = {
   },
 };
 
-/**address of verifierNFT Contract : 0x08e9CADc107893c306DFA3fc77525cAFB1116935
-address of researchPaperContract Contract : 0x719974E1565d5F36606Ec2Bc56c419c9CA995345
-address of shoodhContract Contract : 0xD975Bfc13f54AD4c8Ce291F5e9434374056b99c3 */
+/**address of verifierNFT Contract : 0xED21b1AbbfC45C0ed89fd977f0497ea8B0f522Bc
+address of researchPaperContract Contract : 0x5f7d6843cd2455BD49C2edc764B220bb59f408c0
+address of shoodhContract Contract : 0xAe90Ad505E70Ae0388FF1CEb88B0A92F4568cF47 */

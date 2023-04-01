@@ -20,6 +20,8 @@ contract Shoodh {
 
     // user strcut
     mapping(address=>mapping(address=>uint)) public contributions;
+    mapping(address=>uint) public noResearch;
+    mapping(address=>uint[]) public  userResearches;
 
     // researchers
     struct Research{
@@ -104,6 +106,8 @@ contract Shoodh {
         researchPaper.safeMint(msg.sender, _uri);
 
         isreseacher[msg.sender] = true;
+        noResearch[msg.sender]++;
+        userResearches[msg.sender].push(no_of_research-1);
 
         emit ResearchFormed(no_of_research,_uri,msg.sender);
     }
