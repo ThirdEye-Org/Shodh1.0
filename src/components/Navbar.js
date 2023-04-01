@@ -1,16 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ethers } from "ethers"
+import { ethers } from "ethers";
 import { useState, useEffect } from "react";
+import Web3 from "web3";
 
 const Navbar = () => {
-
   const [address, setAddress] = useState(null);
-  const [logedin,setLogedin] = useState(false);
+  const [logedin, setLogedin] = useState(false);
+  const [web3Api, setWeb3Api] = useState({
+    provider: null,
+    web3: null,
+  });
 
   async function requestAccount() {
     await window.ethereum.request({ method: "eth_requestAccounts" });
-    let accounts = await web3.eth.requestAccounts();
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const web3 = new Web3(provider);
+    setWeb3Api({
+      provider: provider,
+      web3: web3,
+    });
+    let accounts = await web3Api.web3.eth.requestAccounts();
     setAddress(accounts[0]);
     setLogedin(true);
   }

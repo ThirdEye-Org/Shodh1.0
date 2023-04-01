@@ -6,7 +6,6 @@ import Profile from "./components/Profile";
 import ValidateProperty from "./components/validateProperty";
 import React, { useState, useEffect } from "react";
 
-
 import { ethers } from "ethers";
 import verifierNFT from "./contracts/VerifierNFT.sol/VerifierNFT.json";
 import researchPaperNFT from "./contracts/ResearchPaperNFT.sol/ResearchPaper.json";
@@ -71,20 +70,19 @@ function App() {
   }, []);
 
   return (
-    <contractContext.Provider value={{contracts,setContracts}}>
-
-    <div className="bg-white">
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/validate" element={<ValidateProperty />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/validator" element={<Validator />} />
-          {/* <Profile /> */}
-        </Routes>
-      </Router>
-    </div>
+    <contractContext.Provider value={{ contracts, setContracts }}>
+      <div className="bg-white">
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="/validate" element={<ValidateProperty />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/validator" element={<Validator />} />
+            {/* <Profile /> */}
+          </Routes>
+        </Router>
+      </div>
     </contractContext.Provider>
   );
 }
