@@ -1,14 +1,14 @@
 // import { useState } from "react";
-// import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
 
 function App() {
   
   return (
-    <>
-      {/* <Navbar /> */}
-      <Profile />
-    </>
+    <div className="bg-white">
+      <Navbar />
+      {/* <Profile /> */}
+    </div>
   );
 }
 
