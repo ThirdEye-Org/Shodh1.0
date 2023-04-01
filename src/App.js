@@ -1,20 +1,15 @@
 // import { useState } from "react";
-// import Navbar from "./components/Navbar";
-import Modal from "./components/Modal";
+import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
 import ValidateProperty from "./components/validateProperty";
 
 function App() {
   
   return (
-    <>
-      {/* <Navbar /> */}
-      {/* <Profile />
-       */}
-      
-      {/* <Modal /> */}
-      <ValidateProperty/>
-    </>
+    <div className="bg-white">
+      <Navbar />
+      {/* <Profile /> */}
+    </div>
   );
 }
 
