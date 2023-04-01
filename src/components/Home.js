@@ -4,7 +4,7 @@ import ClimateChange from "./assets/ClimateChange.jpg";
 import MusicAndLearning from "./assets/MusicAndLearning.jpg";
 function Home() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-12">
       <div className="h-[75vh] pt-12 rounded-3xl items-center justify-center bg-[#F7F7F7]">
         <div className="flex items-center justify-center text-5xl font-publica">
           Explore our Top Research Papers

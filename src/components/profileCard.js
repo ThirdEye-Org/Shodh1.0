@@ -4,6 +4,7 @@ import assetsOwned1 from "./assets/assetsOwned1.png";
 import assetsOwned2 from "./assets/assetsOwned2.png";
 import assetsOwned3 from "./assets/assetsOwned3.png";
 import profileBack from "./assets/profileBack.png";
+import profileback from "./assets/profileback.jpeg";
 import tokenLogo from "./assets/tokenLogo.png";
 import blueTick from "./assets/blueTick.svg";
 // import { userContext } from "../App";
@@ -29,9 +30,9 @@ function ProfileCard() {
 
   // console.log(account);
   return (
-    <div className="scale-[80%] bg-white w-[612px] h-[862px] shadow-[0_4px_40px_rgba(0,0,0,0.25)] rounded-[50px] flex flex-col items-center relative">
+    <div className="scale-[80%] bg-white w-[612px] h-[862px] shadow-[0_4px_40px_rgba(0,0,0,0.25)] rounded-[50px] flex flex-col items-center relative ">
       <div className="absolute ">
-        <img src={profileBack} alt="" className="profileback" />
+        <img src={profileback} alt="" className="profileback rounded-t-[50px] " />
         {/* <img src={Rectangle} alt="" /> */}{" "}
         {/* <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" /> */}
       </div>
