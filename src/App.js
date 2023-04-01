@@ -22,6 +22,8 @@ function App() {
     researchPapernft: null,
     shoodh: null,
   });
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [account, setAccount] = useState(null);
 
   async function readContracts() {
     if (typeof window.ethereum !== "undefined") {
@@ -70,19 +72,20 @@ function App() {
   }, []);
 
   return (
-    <contractContext.Provider value={{ contracts, setContracts }}>
-      <div className="bg-white">
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/validate" element={<ValidateProperty />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/validator" element={<Validator />} />
-            {/* <Profile /> */}
-          </Routes>
-        </Router>
-      </div>
+    <contractContext.Provider value={{contracts,loggedIn,account,setAccount,setLoggedIn}}>
+
+    <div className="bg-white">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/validate" element={<ValidateProperty />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/validator" element={<Validator />} />
+          {/* <Profile /> */}
+        </Routes>
+      </Router>
+    </div>
     </contractContext.Provider>
   );
 }
