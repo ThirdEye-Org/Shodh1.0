@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import profileBuilding from "./assets/profileBuilding.png";
-import profilebuilding2 from "./assets/profilebuilding2.png";
-import profilebuilding3 from "./assets/profilebuilding3.png";
+import SocialMedia from "./assets/SocialMedia.jpg";
+import ClimateChange from "./assets/ClimateChange.jpg";
+import MusicAndLearning from "./assets/MusicAndLearning.jpg";
 // import Modal from "./Modal";
 // import Property from "./property";
 function ProfileHero() {
@@ -29,7 +29,7 @@ function ProfileHero() {
             className="relative w-max overflow-hidden rounded-2xl hover:scale-110 transition-all hover:shadow-md hover:shadow-black"
             onClick={handlemodal}
           >
-            <img src={profileBuilding} alt="" className="  h-96 w-72" />
+            <img src={SocialMedia} alt="" className="  h-96 w-72 object-cover brightness-50" />
             <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
             <div className="absolute bottom-5 w-72 p-4 flex flex-col">
               <div className="font-semibold  font-pSans text-xl z-[1] text-white">
@@ -41,11 +41,11 @@ function ProfileHero() {
             </div>
           </div>
           <div className="relative w-max overflow-hidden rounded-2xl hover:scale-110 transition-all hover:shadow-md hover:shadow-black">
-            <img src={profilebuilding2} alt="" className="  h-96 w-72" />
+            <img src={ClimateChange} alt="" className="  h-96 w-72 brightness-50" />
             <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
             <div className="absolute bottom-5 w-72 p-4 flex flex-col">
               <div className="font-semibold  font-pSans text-xl z-[1]   text-white">
-                10/7, Old Campus, GGSIPU-110077
+              Assessing the Impact of Climate Change on Coastal Ecosystems
               </div>
               <div className=" text-[rgba(255,255,255,0.79)] font-pSans text-xs italic font-light">
                 Invested
@@ -53,11 +53,11 @@ function ProfileHero() {
             </div>
           </div>
           <div className="relative w-max overflow-hidden rounded-2xl hover:scale-110 transition-all hover:shadow-md hover:shadow-black">
-            <img src={profilebuilding3} alt="" className="  h-96 w-72" />
+            <img src={MusicAndLearning} alt="" className="  h-96 w-72 brightness-50" />
             <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
             <div className="absolute bottom-5 w-72 p-4 flex flex-col">
               <div className="font-semibold  font-pSans text-xl z-[1]   text-white">
-                D21, DLF, Central Delhi, Rajiv Chowk, New Delhi - 110055
+              Investigating the Effect of Music on Memory and Learning
               </div>
               <div className=" text-[rgba(255,255,255,0.79)] font-pSans text-xs italic font-light">
                 Validated
