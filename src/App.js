@@ -11,6 +11,7 @@ import verifierNFT from "./contracts/VerifierNFT.sol/VerifierNFT.json";
 import researchPaperNFT from "./contracts/ResearchPaperNFT.sol/ResearchPaper.json";
 import shoodh from "./contracts/Shoodh.sol/Shoodh.json";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddResearch from "./components/addResearch";
 export const contractContext = React.createContext();
 const verifierNFTAddress = "0x08e9CADc107893c306DFA3fc77525cAFB1116935";
 const researchPaperNFTAddress = "0x719974E1565d5F36606Ec2Bc56c419c9CA995345";
@@ -82,6 +83,7 @@ function App() {
           <Route path="/validate" element={<ValidateProperty />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/validator" element={<Validator />} />
+          <Route path="/addnew" element={<AddResearch/>} />
           {/* <Profile /> */}
         </Routes>
       </Router>
