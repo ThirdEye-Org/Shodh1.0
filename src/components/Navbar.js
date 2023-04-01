@@ -16,28 +16,14 @@ const Navbar = () => {
   async function requestAccount() {
     await window.ethereum.request({ method: "eth_requestAccounts" });
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const web3 = new Web3(provider);
-    setWeb3Api({
-      provider: provider,
-      web3: web3,
-    });
-    let accounts = await web3Api.web3.eth.requestAccounts();
+
+    const accounts = await provider.listAccounts();
     setAddress(accounts[0]);
+    console.log(accounts[0]);
     setLogedin(true);
   }
   const { contracts, loggedIn, setLoggedIn, account, setAccount } =
     React.useContext(contractContext);
-  // console.log(account);
-  // console.log(contracts);
-  // setAccount('0x08e9CADc107893c306DFA3fc77525cAFB1116935');
-  // console.log(account)
-
-  // async function requestAccount() {
-  //   await window.ethereum.request({ method: "eth_requestAccounts" });
-  //   let accounts = await web3.eth.requestAccounts();
-  //   setAccount(accounts[0]);
-  //   account?.setLogedin(true);
-  // }
 
   return (
     <div className="h-max w-screen  flex justify-between items-center py-4 px-8 font-pSans">
@@ -121,9 +107,7 @@ const Navbar = () => {
       {!loggedIn ? (
         <>
           <div className="py-3 px-8 border rounded-full bg-black text-white">
-            <span className=""
-              // onClick={requestAccount}
-            >
+            <span className="" onClick={requestAccount}>
               Connect to Wallet
             </span>
           </div>
