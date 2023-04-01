@@ -70,4 +70,4 @@ function ProfileHero() {
   );
 }
 
-// export default ProfileHero;
+export default ProfileHero;
