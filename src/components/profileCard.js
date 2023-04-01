@@ -59,7 +59,7 @@ function ProfileCard() {
       </div>
       <div className="w-[296px] h-[47px] font-pSans text-[40px] font-bold mt-10 flex items-center justify-center">
         {account !== null &&
-          account.slice(0, 4) + "..." + account.slice(28, 32)}
+          account?.slice(0, 4) + "..." + account.slice(28, 32)}
         {/* {accoun.slice(0,5)} */}
       </div>
       <div className=" text-2xl mt-2 ">
