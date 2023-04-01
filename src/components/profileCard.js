@@ -8,6 +8,8 @@ import profileback from "./assets/profileback.jpeg";
 import tokenLogo from "./assets/tokenLogo.png";
 import blueTick from "./assets/blueTick.svg";
 import { contractContext } from "../App";
+import Identicon from "react-identicons";
+
 // const web3 = require('web3')
 
 function ProfileCard() {
@@ -47,7 +49,13 @@ function ProfileCard() {
         {/* <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" /> */}
       </div>
       <div className=" flex mt-10 justify-center items-center p-[10px] shadow-[0_4px_45px_rgba(0,0,0,0.2)] rounded-[43px]   h-[378px] w-[378px] z-[1] bg-white ">
-        <img src={logo} alt="" className="rounded-[40px]" />
+        {/* <img src={logo} alt="" className="rounded-[40px]" /> */}
+
+        <Identicon
+          string={account}
+          size={250}
+          style={{ borderRadius: "50%" }}
+        />
       </div>
       <div className="w-[296px] h-[47px] font-pSans text-[40px] font-bold mt-10 flex items-center justify-center">
         {account !== null &&
