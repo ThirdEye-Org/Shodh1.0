@@ -2,8 +2,8 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="h-max w-screen flex justify-between items-center p-8 font-pSans">
-      <div className="flex gap-2 h-full items-center ">
+    <div className="h-max w-screen  flex justify-between items-center p-8 font-pSans">
+      <div className="flex gap-2 h-full items-center justify-center">
         <svg
           width="77"
           height="77"
@@ -34,7 +34,7 @@ const Navbar = () => {
             />
           </defs>
         </svg>
-        <span className="font-publica text-6xl">shodh</span>
+        <span className="font-publica text-6xl flex items-center">shodh</span>
       </div>
       <div className="w-1/3 h-full rounded-full border-dashed border border-black hover:border-solid hover:border-black/30 p-4">
         <label className="h-full flex items-center gap-6">
