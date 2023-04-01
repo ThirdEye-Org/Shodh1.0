@@ -1,9 +1,14 @@
-import { useState } from "react";
+// import { useState } from "react";
+// import Navbar from "./components/Navbar";
+import Profile from "./components/Profile";
 
 function App() {
   
   return (
-    <h1>Shodh1.0</h1>
+    <>
+      {/* <Navbar /> */}
+      <Profile />
+    </>
   );
 }
 
