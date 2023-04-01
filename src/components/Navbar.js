@@ -1,7 +1,14 @@
 import React from "react";
+import { contractContext } from "../App";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const { contracts, account, setAccount } = React.useContext(contractContext);
+  // console.log(account);
+  // console.log(contracts);
+  // setAccount('0x08e9CADc107893c306DFA3fc77525cAFB1116935');
+  // console.log(account)
+
   return (
     <div className="h-max w-screen  flex justify-between items-center py-4 px-8 font-pSans">
       <div className="flex gap-2 h-full items-center justify-center">
@@ -81,20 +88,33 @@ const Navbar = () => {
           />
         </label>
       </div>
-      <div className=" flex items-center justify-evenly text-lg w-1/3 ">
-        <Link to="/profile">
-          <span className="">User</span>
-        </Link>
-        <Link to="/validator">
-          <span className=""> Profile</span>
-        </Link>
-        <div className="py-3 px-8 border rounded-full border-black hover:bg-black hover:text-white">
-          <Link to="/validate">
-            {" "}
-            <span className="">Validate</span>
-          </Link>
-        </div>
-      </div>
+      {!account ? (
+        <>
+          <div className="py-3 px-8 border rounded-full bg-black text-white">
+
+              <span className="" >Connect to Wallet</span>
+
+          </div>
+        </>
+      ) : (
+        <>
+          {" "}
+          <div className=" flex items-center justify-evenly text-lg w-1/3 ">
+            <Link to="/profile">
+              <span className="">User</span>
+            </Link>
+            <Link to="/validator">
+              <span className=""> Profile</span>
+            </Link>
+            <div className="py-3 px-8 border rounded-full border-black hover:bg-black hover:text-white">
+              <Link to="/validate">
+                {" "}
+                <span className="">Validate</span>
+              </Link>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

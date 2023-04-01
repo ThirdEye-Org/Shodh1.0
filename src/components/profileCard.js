@@ -30,8 +30,11 @@ function ProfileCard() {
 
   // console.log(account);
 
-  const {contracts} = React.useContext(contractContext);
-  console.log(contracts);
+  const { contracts, account, setAccount } = React.useContext(contractContext);
+  // console.log(account);
+  // console.log(contracts);
+  // setAccount('0x08e9CADc107893c306DFA3fc77525cAFB1116935');
+  // console.log(account)
   return (
     <div className="scale-[80%] bg-white w-[612px] h-[862px] shadow-[0_4px_40px_rgba(0,0,0,0.25)] rounded-[50px] flex flex-col items-center relative ">
       <div className="absolute ">

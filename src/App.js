@@ -23,6 +23,8 @@ function App() {
     researchPapernft: null,
     shoodh: null,
   });
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [account, setAccount] = useState(null);
 
   async function readContracts() {
     if (typeof window.ethereum !== "undefined") {
@@ -71,7 +73,7 @@ function App() {
   }, []);
 
   return (
-    <contractContext.Provider value={{contracts,setContracts}}>
+    <contractContext.Provider value={{contracts,loggedIn,account,setAccount,setLoggedIn}}>
 
     <div className="bg-white">
       <Router>
