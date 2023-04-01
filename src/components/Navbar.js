@@ -1,6 +1,8 @@
 import React from "react";
 import { contractContext } from "../App";
 import { Link } from "react-router-dom";
+import { ethers } from "ethers"
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const { contracts, account, setAccount } = React.useContext(contractContext);
