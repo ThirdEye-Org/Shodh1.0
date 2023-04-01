@@ -2,11 +2,11 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="h-max w-screen  flex justify-between items-center p-8 font-pSans">
+    <div className="h-max w-screen  flex justify-between items-center py-4 px-8 font-pSans">
       <div className="flex gap-2 h-full items-center justify-center">
         <svg
-          width="77"
-          height="77"
+          width="55"
+          height="55"
           viewBox="0 0 77 77"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -34,9 +34,9 @@ const Navbar = () => {
             />
           </defs>
         </svg>
-        <span className="font-publica text-6xl flex items-center">shodh</span>
+        <span className="font-publica text-4xl flex justify-center items-center">shodh</span>
       </div>
-      <div className="w-1/3 h-full rounded-full border-dashed border border-black hover:border-solid hover:border-black/30 p-4">
+      <div className="w-1/3  rounded-full border-dashed border border-black hover:border-solid hover:border-black/30 py-2 px-4">
         <label className="h-full flex items-center gap-6">
           <svg
             width="21"
@@ -69,10 +69,10 @@ const Navbar = () => {
           />
         </label>
       </div>
-      <div className=" flex items-center justify-evenly text-xl w-1/3 gap-10">
+      <div className=" flex items-center justify-evenly text-lg w-1/3 ">
         <span className="">User</span>
         <span className=""> Profile</span>
-        <div className="py-4 px-10 border rounded-full border-black hover:bg-black hover:text-white">
+        <div className="py-3 px-8 border rounded-full border-black hover:bg-black hover:text-white">
           <span className="">Validate</span>
         </div>
       </div>
