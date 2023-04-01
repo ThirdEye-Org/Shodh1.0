@@ -6,8 +6,6 @@ import { useState, useEffect } from "react";
 import Web3 from "web3";
 
 const Navbar = () => {
-  const [address, setAddress] = useState(null);
-  const [logedin, setLogedin] = useState(false);
   const [web3Api, setWeb3Api] = useState({
     provider: null,
     web3: null,
@@ -18,9 +16,11 @@ const Navbar = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     const accounts = await provider.listAccounts();
-    setAddress(accounts[0]);
+    // setAddress(accounts[0]);
     console.log(accounts[0]);
-    setLogedin(true);
+    // setLogedin(true);
+    setAccount(accounts[0]);
+    setLoggedIn(true);
   }
   const { contracts, loggedIn, setLoggedIn, account, setAccount } =
     React.useContext(contractContext);

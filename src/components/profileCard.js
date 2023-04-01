@@ -38,7 +38,11 @@ function ProfileCard() {
   return (
     <div className="scale-[80%] bg-white w-[612px] h-[862px] shadow-[0_4px_40px_rgba(0,0,0,0.25)] rounded-[50px] flex flex-col items-center relative ">
       <div className="absolute ">
-        <img src={profileback} alt="" className="profileback rounded-t-[50px] " />
+        <img
+          src={profileback}
+          alt=""
+          className="profileback rounded-t-[50px] "
+        />
         {/* <img src={Rectangle} alt="" /> */}{" "}
         {/* <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" /> */}
       </div>
@@ -46,11 +50,9 @@ function ProfileCard() {
         <img src={logo} alt="" className="rounded-[40px]" />
       </div>
       <div className="w-[296px] h-[47px] font-pSans text-[40px] font-bold mt-10 flex items-center justify-center">
-        {/* {
-          account !==null && account.slice(0, 4) +
-          "..." +
-          account.slice(28, 32)} */}
-        23456432
+        {account !== null &&
+          account.slice(0, 4) + "..." + account.slice(28, 32)}
+        {/* {accoun.slice(0,5)} */}
       </div>
       <div className=" text-2xl mt-2 ">
         {/* Either */}
