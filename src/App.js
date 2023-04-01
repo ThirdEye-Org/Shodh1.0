@@ -11,6 +11,7 @@ import verifierNFT from "./contracts/VerifierNFT.sol/VerifierNFT.json";
 import researchPaperNFT from "./contracts/ResearchPaperNFT.sol/ResearchPaper.json";
 import shoodh from "./contracts/Shoodh.sol/Shoodh.json";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddResearch from "./components/addResearch";
 export const contractContext = React.createContext();
 const verifierNFTAddress = "0x28Bb85f8103C7B27DA9d21DC98d5537C5Af42483";
 const researchPaperNFTAddress = "0xF040770EA2b58aad7590041c478E4BB01eFeAcdd";
@@ -72,21 +73,21 @@ function App() {
   }, []);
 
   return (
-    <contractContext.Provider
-      value={{ contracts, loggedIn, account, setAccount, setLoggedIn }}
-    >
-      <div className="bg-white">
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/validate" element={<ValidateProperty />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/validator" element={<Validator />} />
-            {/* <Profile /> */}
-          </Routes>
-        </Router>
-      </div>
+    <contractContext.Provider value={{contracts,loggedIn,account,setAccount,setLoggedIn}}>
+
+    <div className="bg-white">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/validate" element={<ValidateProperty />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/validator" element={<Validator />} />
+          <Route path="/addnew" element={<AddResearch/>} />
+          {/* <Profile /> */}
+        </Routes>
+      </Router>
+    </div>
     </contractContext.Provider>
   );
 }
