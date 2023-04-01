@@ -1,18 +1,17 @@
 import React from "react";
-import logo from "./assets/icon.png";
 import assetsOwned1 from "./assets/assetsOwned1.png";
 import assetsOwned2 from "./assets/assetsOwned2.png";
 import assetsOwned3 from "./assets/assetsOwned3.png";
-import profileBack from "./assets/profileBack.png";
 import profileback from "./assets/profileback.jpeg";
-import tokenLogo from "./assets/tokenLogo.png";
 import blueTick from "./assets/blueTick.svg";
 import { contractContext } from "../App";
+import {useNavigate} from "react-router-dom"
 import Identicon from "react-identicons";
 
 // const web3 = require('web3')
 
 function ProfileCard() {
+  const Navigate=useNavigate()
   // const { account,contract ,web3Api} = useContext(userContext);
   // const [tokens,setTokens]=React.useState(0);
   // React.useEffect(()=>{
@@ -32,7 +31,7 @@ function ProfileCard() {
 
   // console.log(account);
 
-  const { contracts, account, setAccount } = React.useContext(contractContext);
+  const { account, setAccount, setLoggedIn } = React.useContext(contractContext);
   // console.log(account);
   // console.log(contracts);
   // setAccount('0x08e9CADc107893c306DFA3fc77525cAFB1116935');
@@ -75,7 +74,7 @@ function ProfileCard() {
          Become a Validator
         </span> */}
       </div>
-      <div className="flex flex-row space-x-6 mt-16 px-2 w-max">
+      <div className="flex flex-row space-x-6 mt-16 px-2 w-[30vw] justify-center">
         <div>
           <div className="font-pSans text-xl font-light text-[rgba(0,0,0,0.5)] flex justify-center items-center">
             Researches used by
@@ -119,21 +118,12 @@ function ProfileCard() {
             0
           </div>
         </div>
-        <div>
-          <div className="font-pSans text-xl font-light text-[rgba(0,0,0,0.5)] flex justify-center items-center w-max">
-            Shodh Tokens
-          </div>
-          <div className="font-pSans font-bold text-[40px] flex justify-center items-center h-[56px]">
-            <div className="flex space-x-2">
-              <div>2</div>
-              <div className="flex items-center justify-center">
-                <img src={tokenLogo} alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-      <div className="w-[70%] h-[75px] flex items-center justify-center p-[20px 24px] bg-[#5A7BF3] rounded-3xl font-pSans color-white font-medium text-[30px] text-white mt-16">
+      <div className="w-[70%] h-[75px] flex items-center justify-center p-[20px 24px] bg-[#5A7BF3] rounded-3xl font-pSans color-white font-medium text-[30px] text-white mt-16 cursor-pointer" onClick={()=>{
+        Navigate("/")
+        setAccount(null);
+        setLoggedIn(false);
+      }}>
         log out
       </div>
     </div>

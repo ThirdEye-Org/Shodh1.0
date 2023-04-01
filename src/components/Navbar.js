@@ -2,14 +2,8 @@ import React from "react";
 import { contractContext } from "../App";
 import { Link } from "react-router-dom";
 import { ethers } from "ethers";
-import { useState, useEffect } from "react";
-import Web3 from "web3";
 
 const Navbar = () => {
-  const [web3Api, setWeb3Api] = useState({
-    provider: null,
-    web3: null,
-  });
 
   async function requestAccount() {
     await window.ethereum.request({ method: "eth_requestAccounts" });
@@ -22,7 +16,7 @@ const Navbar = () => {
     setAccount(accounts[0]);
     setLoggedIn(true);
   }
-  const { contracts, loggedIn, setLoggedIn, account, setAccount } =
+  const { loggedIn, setLoggedIn, setAccount } =
     React.useContext(contractContext);
 
   return (
@@ -105,13 +99,13 @@ const Navbar = () => {
         </label>
       </div>
       {!loggedIn ? (
-        <>
-          <div className="py-3 px-8 border rounded-full bg-black text-white">
+        <div className="cursor-pointer">
+          <div className="py-3 px-8 border rounded-full bg-black text-white" >
             <span className="" onClick={requestAccount}>
               Connect to Wallet
             </span>
           </div>
-        </>
+        </div>
       ) : (
         <>
           {" "}

@@ -5,7 +5,7 @@ const Validator = () => {
     <div className="p-10 py-8 h-[80%] w-screen ">
       <div className="h-full w-full rounded-3xl bg-slate-200 px-24 flex gap-16">
         <div className="h-full w-2/5 my-auto justify-center item-center">
-          <img src={Penthouse} alt="img1" className="rounded-xl object-cover" />
+          <img src={Penthouse} alt="img1" className="rounded-xl object-cover h-[80vh] w-[auto]" />
         </div>
         <div className="h-full w-3/5 flex flex-col gap-4 font-pSans py-16 ">
           <div className="text-4xl font-bold">
@@ -40,7 +40,7 @@ const Validator = () => {
             </div>
           </div>
           <div className="flex w-3/5 justify-between py-6">
-            <div className="p-2 px-6 flex gap-4 items-center text-white  bg-[#5A7BF3] fill-white  rounded-xl hover:bg-blue-700">
+            <div className="p-2 px-6 flex gap-4 items-center text-white  bg-[#5A7BF3] fill-white  rounded-xl hover:bg-blue-700 cursor-pointer">
               <svg
                 width="21"
                 height="26"
@@ -55,7 +55,7 @@ const Validator = () => {
               </svg>
               <span className="font-pSans text-2xl">Verify</span>
             </div>
-             <div className="p-2 px-6  items-center border-2  border-[#5A7BF3] text-[#5A7BF3] rounded-xl  hover:text-white hover:bg-[#5A7BF3]">
+             <div className="p-2 px-6  items-center border-2  border-[#5A7BF3] text-[#5A7BF3] rounded-xl  hover:text-white hover:bg-[#5A7BF3] cursor-pointer">
               <span className="font-pSans text-2xl">More Details</span>
             </div>
           </div>
