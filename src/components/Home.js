@@ -61,7 +61,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="exploremore py-4 rounded-3xl text-center bg-[#5A7BF3] w-[50%] text-white font-bold"><p>Explore More Researches</p>
+        <div className="exploremore py-4 rounded-3xl text-center bg-[#5A7BF3] w-[50%] text-white font-bold cursor-pointer "><p>Explore More Researches</p>
         </div>
       </div>
     </div>

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { ethers } from "ethers";
 
 const Navbar = () => {
-
   async function requestAccount() {
     await window.ethereum.request({ method: "eth_requestAccounts" });
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -100,7 +99,7 @@ const Navbar = () => {
       </div>
       {!loggedIn ? (
         <div className="cursor-pointer">
-          <div className="py-3 px-8 border rounded-full bg-black text-white" >
+          <div className="py-3 px-8 border rounded-full bg-black text-white">
             <span className="" onClick={requestAccount}>
               Connect to Wallet
             </span>
@@ -114,7 +113,7 @@ const Navbar = () => {
               <span className="">User</span>
             </Link>
             <Link to="/validator">
-              <span className=""> Profile</span>
+              <span className=""> Nft State</span>
             </Link>
             <div className="py-3 px-8 border rounded-full border-black hover:bg-black hover:text-white">
               <Link to="/validate">
