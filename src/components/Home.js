@@ -4,12 +4,19 @@ import ClimateChange from "./assets/ClimateChange.jpg";
 import MusicAndLearning from "./assets/MusicAndLearning.jpg";
 function Home() {
   return (
-    <div className="container mx-auto mt-12">
-      <div className="h-[75vh] pt-12 rounded-3xl items-center justify-center bg-[#F7F7F7]">
+    <div className="container  mx-auto mt-12 mb-10">
+      <div className="pt-12 rounded-3xl items-center justify-center py-20 bg-[#F7F7F7]">
         <div className="flex items-center justify-center text-5xl font-publica">
           Explore our Top Research Papers
         </div>
-        <div className="flex flex-row mt-16 space-x-10 items-center justify-center">
+        <div className="text-sm font-pSans w-2/3 text-center flex items-center mx-auto justify-center mt-4">
+          According to our analytics, These papers have garnered significant
+          attention. In terms of popularity and engagement, We are pleased to
+          present the most successful research papers. The following studies
+          have generated a considerable amount of interest. Our platform is
+          proud to feature these top-performing research papers.
+        </div>
+        <div className="flex flex-row mt-12 space-x-10 items-center justify-center">
           <div className="relative w-max overflow-hidden rounded-2xl hover:scale-110 transition-all hover:shadow-md hover:shadow-black">
             <img
               src={SocialMedia}
@@ -58,6 +65,11 @@ function Home() {
                 Validated
               </div>
             </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-center  ">
+          <div className="bg-[#5A7BF3] text-xl md:text-2xl font-bold rounded-full py-3 px-4 text-white mt-12  w-2/5 flex items-center justify-center">
+            Explore More Researches
           </div>
         </div>
       </div>
