@@ -28,6 +28,7 @@ function App() {
   const [contri , setContri] = useState(0);
   const [research , setResearch] = useState(0);
   const [researchNFT , setResearchNFT] = useState([]);
+  const [cardsforprofile, setCardsforprofile]= useState([])
 
 
   async function readContracts() {
@@ -77,7 +78,7 @@ function App() {
   }, []);
 
   return (
-    <contractContext.Provider value={{contracts,loggedIn,account,setAccount,setLoggedIn,contri,setContri,research,setResearch,researchNFT,setResearchNFT}}>
+    <contractContext.Provider value={{contracts,loggedIn,account,setAccount,setLoggedIn,contri,setContri,research,setResearch,researchNFT,setResearchNFT,cardsforprofile,setCardsforprofile}}>
 
     <div className="bg-white">
       <Router>

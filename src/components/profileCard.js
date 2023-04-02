@@ -25,6 +25,7 @@ function ProfileCard() {
     setResearch,
     researchNFT,
     setResearchNFT,
+    setCardsforprofile
   } = React.useContext(contractContext);
   const Navigate = useNavigate();
   // const { account,contract ,web3Api} = useContext(userContext);
@@ -95,6 +96,28 @@ function ProfileCard() {
     }
   }
 
+  const sol1 = async () => {
+    // console.log(arr)
+    console.log(researchNFT)
+    var var1=[]
+    const res = await fetch(researchNFT[0].tokenUri, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+      referrerPolicy:"origin-when-cross-origin"
+    });
+    console.log(res)
+    const result = await res.json();
+    console.log(result);
+    // setIsrecieved(true);
+    // if (isrecieved) 
+    var1.push(result);
+    setCardsforprofile(var1);
+  };
+  setTimeout(() => {
+    sol1();
+  }, 3000);
   // console.log(account);
   // console.log(contracts);
   // setAccount('0x08e9CADc107893c306DFA3fc77525cAFB1116935');
