@@ -2,27 +2,74 @@ import React, { useState } from "react";
 import SocialMedia from "./assets/SocialMedia.jpg";
 import ClimateChange from "./assets/ClimateChange.jpg";
 import MusicAndLearning from "./assets/MusicAndLearning.jpg";
+import { ethers } from "ethers";
+
 // import Modal from "./Modal";
 // import Property from "./property";
 
 import { contractContext } from "../App";
+import { resetWarningCache } from "prop-types";
 function ProfileHero() {
-  const [isModal, setIsModal] = useState(false);
+  const {
+    account,
+    contracts,
+    setContri,
+    setResearch,
+    researchNFT,
+    setResearchNFT,
+  } = React.useContext(contractContext);
   let var1 = [];
-  const { researchNFT } = React.useContext(contractContext);
-  const handlemodal = () => {
-    setIsModal(!isModal);
-  };
-  const Sol = async (nft) => {
-    // nft.tokenUri.then((res)=> res.json()).then((respo)=>var1.push(respo));
-    // console.log(jso);
-    // nft.tokenUri.json();
-  };
+  // const { researchNFT } = React.useContext(contractContext);
+  async function readUserdetails() {
+    if (typeof window.ethereum !== "undefined") {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      console.log("provider", provider);
+      const cont = contracts.shoodh;
+      try {
+        const datacontri = await cont.contributions(account);
+        console.log("User Contribution in ETH: ", datacontri.toString());
+        setContri(datacontri.toNumber());
+        const datanoresearch = await cont.noResearch(account);
+        setResearch(datanoresearch.toString());
+        console.log("User no of researches: ", datanoresearch.toString());
+        const researchArr = await cont.getResearches(account);
+        console.log("User Research NFT IDs: ", researchArr);
+        researchArr.map(async (e) => {
+          const tokenid = e.toString();
+          const tokenuri = await contracts.researchPapernft.tokenURI(tokenid);
+          console.log(tokenuri);
+
+          const obj1 = {
+            "tokenId": tokenid,
+            "tokenUri": tokenuri
+          }
+          const arr1 = researchNFT;
+          arr1.push(obj1)
+              
+           setResearchNFT(arr1);
+           console.log(researchNFT);
+          })
+      } catch (err) {
+        console.log("Error: ", err);
+        alert(
+          "Switch your MetaMask network to Polygon zkEVM testnet and refresh this page!"
+        );
+      }
+    }
+  }
   const [isrecieved, setIsrecieved] = React.useState(false);
   // Sol(researchNFT[0])
-  React.useEffect(() => {
-    const sol = async (obj1) => {
-      const res = await fetch(obj1.tokenUri, {
+  // console.log(researchNFT)
+  
+  // React.useEffect(() => {
+    // researchNFT.forEach(element => {
+    //   console.log(element)
+    //   sol(element)
+    // });
+    // const newarr=researchNFT;
+    const sol1 = async () => {
+      // console.log(researchNFT)
+      const res = await fetch(researchNFT[0].tokenUri, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -33,12 +80,25 @@ function ProfileHero() {
       setIsrecieved(true);
       if (isrecieved) var1.push(result);
     };
-
-    researchNFT.map((ele) => {
-      sol(ele);
-      // console.log(ele.tokenUri);
-    });
-  }, [var1]);
+    const sol2 = async (obj1) => {
+      const res = await fetch(researchNFT[1].tokenUri, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      const result = await res.json();
+      console.log(result);
+      setIsrecieved(true);
+      if (isrecieved) var1.push(result);
+    };
+    
+    React.useEffect(()=>{
+      sol1();
+      sol2();
+      contracts && readUserdetails();
+    },[contracts, readUserdetails])
+  // }, [isrecieved,researchNFT,var1]);
   return (
     <>
       {/* {
