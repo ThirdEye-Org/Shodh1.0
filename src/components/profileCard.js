@@ -13,8 +13,19 @@ import { useEffect } from "react";
 // const web3 = require('web3')
 
 function ProfileCard() {
-  const { account, setAccount, setLoggedIn, loggedIn, contracts } =
-    React.useContext(contractContext);
+  const {
+    account,
+    setAccount,
+    setLoggedIn,
+    loggedIn,
+    contracts,
+    contri,
+    setContri,
+    research,
+    setResearch,
+    researchNFT,
+    setResearchNFT,
+  } = React.useContext(contractContext);
   const Navigate = useNavigate();
   // const { account,contract ,web3Api} = useContext(userContext);
   // const [tokens,setTokens]=React.useState(0);
@@ -37,12 +48,12 @@ function ProfileCard() {
 
   useEffect(() => {
     // declare the data fetching function
-    const fetchUserdetails = async () => {
-      const data = await readUserdetails();
-      return data;
-    };
+    // const fetchUserdetails = async () => {
+    //   const data = await readUserdetails();
+    //   return data;
+    // };
 
-    contracts && fetchUserdetails().catch(console.error);
+    contracts && readUserdetails();
   }, [contracts]);
 
   async function readUserdetails() {
@@ -52,18 +63,29 @@ function ProfileCard() {
       const cont = contracts.shoodh;
       try {
         const datacontri = await cont.contributions(account);
-        console.log(
-          "User Contribution in wei: ",
-          ethers.utils.formatUnits(datacontri)
-        );
-
+        console.log("User Contribution in ETH: ", datacontri.toString());
+        setContri(datacontri.toNumber());
         const datanoresearch = await cont.noResearch(account);
-        console.log(
-          "User no of researches: ",
-          ethers.utils.formatUnits(datanoresearch)
-        );
-        const dataresearch = await cont.getResearches(account);
-        console.log("User Research NFT IDs: ", dataresearch);
+        setResearch(datanoresearch.toString());
+        console.log("User no of researches: ", datanoresearch.toString());
+        const researchArr = await cont.getResearches(account);
+        console.log("User Research NFT IDs: ", researchArr);
+        researchArr.map(async (e) => {
+          const tokenid = e.toString();
+          const tokenuri = await contracts.researchPapernft.tokenURI(tokenid);
+          console.log(tokenuri);
+
+          const obj1 = {
+            "tokenId": tokenid,
+            "tokenUri": tokenuri
+          }
+          const arr1 = researchNFT;
+          arr1.push(obj1)
+              
+           setResearchNFT(arr1);
+           console.log(researchNFT);
+           
+          })
       } catch (err) {
         console.log("Error: ", err);
         alert(
@@ -148,18 +170,18 @@ function ProfileCard() {
         </div>
         <div>
           <div className="font-pSans text-xl font-light text-[rgba(0,0,0,0.5)] flex justify-center items-center">
-            verified
+            Contibutions
           </div>
           <div className="font-pSans font-bold text-[40px] flex justify-center items-center h-[56px]">
-            0
+            {contri}
           </div>
         </div>
         <div>
           <div className="font-pSans text-xl font-light text-[rgba(0,0,0,0.5)] flex justify-center items-center">
-            Not verified
+            No of Published Researches
           </div>
           <div className="font-pSans font-bold text-[40px] flex justify-center items-center h-[56px]">
-            0
+            {research}
           </div>
         </div>
       </div>
