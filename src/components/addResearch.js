@@ -1,6 +1,34 @@
-import React from 'react'
+import React, { useRef, useState } from "react";
+import { contractContext } from "../App";
+import shoodh from "../contracts/Shoodh.sol/Shoodh.json";
+import { ethers } from "ethers";
+const shoodhAddress = "0xf26fD86681FE837ffD9a495Ee72Bcd89b69e5dD5";
 
 function AddResearch() {
+  const { contracts } = React.useContext(contractContext);
+  const uriRef = useRef();
+  const idRef = useRef();
+  const arrRef = useRef();
+
+  const [uri, seturi] = useState(null);
+  const [id, setid] = useState(null);
+  const [arr2, setarr2] = useState(null);
+
+  async function updateUser() {
+    if (typeof window.ethereum !== "undefined") {
+      await window.ethereum.request({ method: "eth_requestAccounts" });
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      console.log({ provider });
+      const signer = provider.getSigner();
+      console.log(signer);
+      const shoodh1 = new ethers.Contract(shoodhAddress, shoodh.abi, signer);
+      console.log(shoodh1);
+      // console.log(typeof())
+      const transaction = await shoodh1.createResearchPaper(uri, id, arr2);
+      console.log("gg");
+      // console.log(transaction)
+    }
+  }
   return (
     <div className="h-[90vh] w-screen">
       <div className="flex justify-center items-center flex-col space-y-6 pt-12 ">
@@ -20,49 +48,68 @@ function AddResearch() {
             <div className="border-1 border-dotted">
               <input
                 type="text"
+                ref={uriRef}
+                required
                 placeholder="Enter URI"
                 className="placeholder:opacity-70 rounded-full border-dashed border border-black px-6 py-2 text-black placeholder:text-black outline-none font-pSans text-xl placeholder:text-base  w-full"
               />
             </div>
           </div>
           <div className="">
-            <div className="text-3xl font-semibold font-pSans">
-              Your PDF Research Link
-            </div>
+            <div className="text-3xl font-semibold font-pSans">ID</div>
             <div className="border-1 border-dotted">
               <input
                 type="text"
-                placeholder="Enter URI"
+                ref={idRef}
+                required
+                placeholder="Id Continued"
                 className="placeholder:opacity-70 rounded-full border-dashed border border-black px-6 py-2 text-black placeholder:text-black outline-none font-pSans text-xl placeholder:text-base  w-full"
               />
             </div>
           </div>
           <div>
-            <div className="text-3xl font-semibold font-pSans">
-              Final Date Of Your Research
-            </div>
+            <div className="text-3xl font-semibold font-pSans">References</div>
             <div className="border-1 border-dotted">
               <input
                 type="text"
-                placeholder="Enter URI"
+                ref={arrRef}
+                required
+                placeholder="Refrences"
                 className="placeholder:opacity-70 rounded-full border-dashed border border-black px-6 py-2 text-black placeholder:text-black outline-none font-pSans text-xl placeholder:text-base  w-full"
               />
             </div>
           </div>
-          <div>
-            <div className="text-3xl font-semibold font-pSans">Author Name</div>
-            <div className="border-1 border-dotted">
-              <input
-                type="text"
-                placeholder="Enter URI"
-                className="placeholder:opacity-70 rounded-full border-dashed border border-black px-6 py-2 text-black placeholder:text-black outline-none font-pSans text-xl placeholder:text-base  w-full"
-              />
-            </div>
+
+          <div
+            className="text-2xl font-pSans w-full cursor-pointer rounded-full bg-black text-white flex items-center justify-center py-4"
+            onClick={() => {
+              const uri = uriRef.current.value; //uri id
+              const id = idRef.current.value; // id beech vali
+              const arr = arrRef.current.value;
+              // console.log(uri,id,arr.split(" "));
+              let arr2 = arr.split(" ");
+              let arrInt = [];
+              const length = arr2.length;
+              for (var i = 0; i < length; i++) arrInt.push(parseInt(arr2[i]));
+
+              console.log(arrInt);
+              setarr2(arrInt);
+              setid(id);
+              seturi(uri);
+
+              uriRef.current.value = "";
+              idRef.current.value = "";
+              arrRef.current.value = "";
+
+              updateUser();
+            }}
+          >
+            {" "}
+            Submit your research
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default AddResearch
+export default AddResearch;

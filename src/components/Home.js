@@ -5,7 +5,7 @@ import MusicAndLearning from "./assets/MusicAndLearning.jpg";
 function Home() {
   return (
     <div className="container mx-auto mt-3">
-      <div className="h-max rounded-3xl w-[80vw] mx-auto flex flex-col gap-6 items-center justify-center bg-[#F7F7F7]">
+      <div className="h-max rounded-3xl w-[80vw] mx-auto flex flex-col gap-6 items-center py-12 justify-center bg-[#F7F7F7]">
         <div className="flex flex-col items-center justify-center text-5xl font-publica">
           Explore our Top Research Papers
           <p className='text-base w-[60%] text-center mt-5'>According to our analytics, These papers have garnered significant attention. In terms of popularity and engagement, We are pleased to present the most successful research papers. The following studies have generated a considerable amount of interest. Our platform is proud to feature these top-performing research papers.</p>
