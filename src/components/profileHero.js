@@ -87,7 +87,10 @@ function ProfileHero() {
                 <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
                 <div className="absolute bottom-5 w-72 p-4 flex flex-col">
                   <div className="font-semibold  font-pSans text-xl z-[1]   text-white">
-                    Assessing the Impact of Climate Change on Coastal Ecosystems
+                    {ele.description}
+                  </div>
+                  <div className=" text-[rgba(255,255,255,0.79)] font-pSans text-xs font-light">
+                    ~{ele.author}
                   </div>
                   <div className=" text-[rgba(255,255,255,0.79)] font-pSans text-xs italic font-light">
                     Not Validated
